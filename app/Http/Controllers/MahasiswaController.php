@@ -14,8 +14,8 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mahasiswa = Mahasiswa::with(['prodi.jurusan.fakultas'])
-            ->orderBy('created_at', 'desc')
+        $mahasiswa = Mahasiswa::with('prodi.jurusan.fakultas')
+            ->orderBy('created_at', 'asc')
             ->get();
             
         return response()->json([

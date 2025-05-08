@@ -16,6 +16,6 @@ class Jurusan extends Model
 
     public function fakultas()
     {
-        return $this->belongsTo(Fakultas::class);
+        return $this->belongsTo(Fakultas::class, 'fakultas_id', 'fakultas_id');
     }
 }

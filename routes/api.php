@@ -12,7 +12,13 @@ Route::get('/user', function (Request $request) {
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\DropdownController;
 
-Route::resource('mahasiswa', MahasiswaController::class);
+#Route::resource('mahasiswa', MahasiswaController::class);
+
+Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+Route::post('/mahasiswa', [MahasiswaController::class, 'store']);
+Route::get('/mahasiswa/{id}', [MahasiswaController::class, 'show']);
+Route::put('/mahasiswa/{id}', [MahasiswaController::class, 'update']);
+Route::delete('/mahasiswa/{id}', [MahasiswaController::class, 'destroy']);
 
 Route::get('fakultas', [DropdownController::class, 'getFakultas']);
 Route::get('jurusan/{fakultas_id}', [DropdownController::class, 'getJurusan']);

@@ -201,8 +201,9 @@
             // Load Data Mahasiswa
             function loadMahasiswa() {
                 $.get('/api/mahasiswa', function(data) {
+                    console.log(data);
                     let html = '';
-                    data.forEach(function(mhs) {
+                    data.data.forEach(function(mhs) {
                         html += `
                             <tr>
                                 <td>${mhs.nim}</td>
@@ -212,8 +213,8 @@
                                 <td>${mhs.prodi.nama}</td>
                                 <td>${mhs.angkatan}</td>
                                 <td>
-                                    <button class="btn btn-sm btn-warning edit-btn" data-id="${mhs.id}">Edit</button>
-                                    <button class="btn btn-sm btn-danger delete-btn" data-id="${mhs.id}">Hapus</button>
+                                    <button class="btn btn-sm btn-warning edit-btn" data-id="${mhs.mahasiswa_id}">Edit</button>
+                                    <button class="btn btn-sm btn-danger delete-btn" data-id="${mhs.mahasiswa_id}">Hapus</button>
                                 </td>
                             </tr>`;
                     });
